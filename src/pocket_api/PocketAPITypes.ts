@@ -36,6 +36,8 @@ export interface SavedPocketItem extends BasePocketItem {
   resolved_title: string;
   resolved_url: string;
   excerpt: string;
+  time_added: string;
+  time_updated: string;
   tags: PocketTags;
   image?: Image;
 }

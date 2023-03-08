@@ -7,7 +7,9 @@ import {
   TFolder,
   Vault,
   Workspace,
+  
 } from "obsidian";
+import { moment_2 } from 'obsidian';
 import {
   URLToPocketItemNoteEntry,
   URLToPocketItemNoteIndex,
@@ -212,6 +214,8 @@ const generateInitialItemNoteContents = (
     ["tags", (item) => hashtagSubstitutor(true)(item.tags)],
     ["tags-no-hash", (item) => hashtagSubstitutor(false)(item.tags)],
     ["pocket-url", (item) => getPocketItemPocketURL(item)],
+    ["time_added", (item) => moment.unix(parseInt(item.time_added)).format("YYYY-MM-DD HH:mm")],
+    ["time_updated", (item) => moment.unix(parseInt(item.time_updated)).format("YYYY-MM-DD HH:mm")],
     [
       "image",
       (item) => {
@@ -269,6 +273,8 @@ const DEFAULT_TEMPLATE = `
 Title: "{{title}}"
 URL: {{url}}
 Pocket URL: {{pocket-url}}
+time_added: {{time_added}}
+time_updated: {{time_updated}}
 Tags: [pocket, {{tags-no-hash}}]
 Excerpt: >
     {{excerpt}}
