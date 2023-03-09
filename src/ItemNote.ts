@@ -18,6 +18,7 @@ import {
   PocketTags,
   pocketTagsToPocketTagList,
   SavedPocketItem,
+  PocketItemStatus,
 } from "./pocket_api/PocketAPITypes";
 import { SettingsManager } from "./SettingsManager";
 import {
@@ -220,7 +221,7 @@ const generateInitialItemNoteContents = (
 	["has_video", (item) => item.has_video],
 	["is_article", (item) => item.is_article ],
 	["lang", (item) => item.lang ?? "no_lang"],
-	["status", (item) => item.status],
+	["status", (item) => PocketItemStatus[item.status]],
 	["word_count", (item) => item.word_count],
     [
       "image",
@@ -266,7 +267,7 @@ const findPathForNewPocketItem = (
 
     if (dupIdx > DUP_LIMIT) {
       throw new Error("Could not find path for new pocket item");
-    }
+    } 
   }
 };
 

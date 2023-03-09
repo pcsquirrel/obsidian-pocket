@@ -1,6 +1,6 @@
 export type PocketItemId = number;
 
-enum PocketItemStatus {
+export enum PocketItemStatus {
   Unread,
   Archived,
   Deleted,
@@ -42,7 +42,7 @@ export interface SavedPocketItem extends BasePocketItem {
 	has_video: string;
 	is_article: string;
 	lang: string;
-	status: string;
+	
 	word_count: string;
   tags: PocketTags;
   image?: Image;
