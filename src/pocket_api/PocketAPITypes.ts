@@ -38,6 +38,12 @@ export interface SavedPocketItem extends BasePocketItem {
   excerpt: string;
   time_added: string;
   time_updated: string;
+  	has_image: string;
+	has_video: string;
+	is_article: string;
+	lang: string;
+	status: string;
+	word_count: string;
   tags: PocketTags;
   image?: Image;
 }

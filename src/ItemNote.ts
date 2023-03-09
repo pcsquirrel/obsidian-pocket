@@ -216,6 +216,12 @@ const generateInitialItemNoteContents = (
     ["pocket-url", (item) => getPocketItemPocketURL(item)],
     ["time_added", (item) => moment.unix(parseInt(item.time_added)).format("YYYY-MM-DD HH:mm")],
     ["time_updated", (item) => moment.unix(parseInt(item.time_updated)).format("YYYY-MM-DD HH:mm")],
+	["has_image", (item) => item.has_image ],
+	["has_video", (item) => item.has_video],
+	["is_article", (item) => item.is_article ],
+	["lang", (item) => item.lang ?? "no_lang"],
+	["status", (item) => item.status],
+	["word_count", (item) => item.word_count],
     [
       "image",
       (item) => {
@@ -275,6 +281,13 @@ URL: {{url}}
 Pocket URL: {{pocket-url}}
 time_added: {{time_added}}
 time_updated: {{time_updated}}
+has_image: {{has_image}}
+has_video: {{has_video}}
+is_article: {{is_article}}
+lang: {{lang}}
+status: {{status}}
+word_count: {{word_count}}
+
 Tags: [pocket, {{tags-no-hash}}]
 Excerpt: >
     {{excerpt}}
